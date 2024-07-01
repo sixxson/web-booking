@@ -1,4 +1,4 @@
-// /** @type {import('tailwindcss').Config} */
+/** @type {import('tailwindcss').Config} */
 // export default {
 //   content: ["index.html", "src/**/*.{ vue, js, ts, jsx, tsx }"],
 //   theme: {
@@ -82,7 +82,10 @@ const config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('daisyui'),
+    require("tailwindcss-animate")
+  ],
 }
 
 export default config

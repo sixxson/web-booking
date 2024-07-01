@@ -11,6 +11,7 @@ import {
     PlayCircleIcon,
 } from "@heroicons/react/20/solid";
 import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react";
+import { Link } from "react-router-dom";
 import { cn } from "../lib/utils";
 
 
@@ -172,14 +173,14 @@ function Header() {
         overflow-y-auto bg-[#013B94] px-6 py-6 sm:max-w-sm 
         sm:ring-1 sm:ring-gray-900/10">
                     <div className="flex items-center justify-between">
-                        <a href="#" className="-m-1.5 p-1.5">
+                        <Link to="/" className="-m-1.5 p-1.5">
                             <span className="sr-only">Booking.com</span>
                             <img
                                 className="h-8 w-auto"
                                 src="https://static1.squarespace.com/static/5bde0f00c3c16aa95581e2e2/62b4cb1add9d257dd43bb03d/62b653fedc7c895918d19b24/1656116254983/booking+logo+white.png?format=1500w"
                                 alt=""
                             />
-                        </a>
+                        </Link>
                         <button
                             type="button"
                             className="-m-2.5 rounded-md p-2.5 text-white"
@@ -251,12 +252,12 @@ function Header() {
                             </div>
 
                             <div className="py-6">
-                                <a
-                                    href="#"
+                                <Link
+                                    to="/Login"
                                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white hover:bg-blue-800"
                                 >
                                     Log In
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>

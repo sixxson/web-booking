@@ -1,11 +1,16 @@
+import { Route, Routes, Navigate, BrowserRouter as Router } from 'react-router-dom'
 import './App.css'
-import Header from './components/Header'
+import Layout from './layout/Layout'
 
 function App() {
   return (
-    <div className='bg-blue-700 w-full'>
-      <Header />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Layout></Layout>}></Route>
+        <Route path="/search" element={<>Search</>}></Route>
+        <Route path="*" element={<Navigate to="/" />}></Route>
+      </Routes>
+    </Router>
   )
 }
 
