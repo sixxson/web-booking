@@ -11,10 +11,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-app.get('/api/test', (req: Request, res: Response) => {
-    res.json('Hello World!');
-});
-
 app.use("/api/users", userRoutes);
 
 app.listen(7000, () => {
