@@ -1,13 +1,27 @@
 import Header from '../components/Header'
 import Hero from '../components/Hero'
 import Footer from '../components/Footer'
+import SearchForm from '../components/SearchForm';
 
-export default function Layout() {
+interface Props {
+    children: React.ReactNode;
+}
+
+export default function Layout({ children }: Props) {
     return (
-        <div className='flex flex-col min-h-screen'>
+        <body className='flex flex-col min-h-screen'>
             <Header />
-            <Hero />
+
+            <main className=' bg-[#013B94]'>
+                <Hero />
+                <section className="m-4 mt-0 -mb-14 px-2 lg:px-4">
+                    <SearchForm />
+                </section>
+                <section className="min-h-screen bg-white w-full mx-auto p-6 mt-9">
+                    {children}
+                </section>
+            </main>
             <Footer />
-        </div>
+        </body>
     )
 }
