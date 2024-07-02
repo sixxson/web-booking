@@ -2,6 +2,7 @@ import { Route, Routes, Navigate, BrowserRouter as Router } from 'react-router-d
 import './App.css'
 import Layout from './layout/Layout'
 import Register from './components/Register'
+import Hero from './components/Hero'
 
 function App() {
   return (
@@ -10,9 +11,9 @@ function App() {
         <Route path="/"
           element={
             <Layout>
-              <p>
-                Home page
-              </p>
+              <Hero />
+
+              <p>home pages</p>
             </Layout>
           }
         />

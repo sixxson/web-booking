@@ -46,5 +46,3 @@ router.post("/register", [
 });
 
 export default router;
-
-fun

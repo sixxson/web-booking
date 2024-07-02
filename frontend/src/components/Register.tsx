@@ -1,6 +1,8 @@
 import { useForm } from "react-hook-form";
 import { useMutation } from "react-query";
 import * as apiClient from "../api-client";
+import { useAppContext } from "../contexts/AppContext";
+import { useNavigate } from "react-router-dom";
 
 export type RegisterFormData = {
     firstName: string;
@@ -11,6 +13,8 @@ export type RegisterFormData = {
 };
 
 export default function Register() {
+    const navigate = useNavigate();
+    const { showToast } = useAppContext()
     const {
         register,
         watch,
@@ -20,10 +24,17 @@ export default function Register() {
 
     const mutation = useMutation(apiClient.register, {
         onSuccess: () => {
-            console.log("User registered successfully");
+            showToast({
+                message: "User registered successfully",
+                type: "success",
+            });
+            navigate("/");
         },
         onError: (error: Error) => {
-            console.log("Error registering user", error.message);
+            showToast({
+                message: error.message,
+                type: "error",
+            });
         }
     });
 
@@ -32,14 +43,14 @@ export default function Register() {
     });
 
     return (
-        <div className="flex flex-col md:flex-row justify-center font-sans h-screen gap-5">
+        <div className="flex flex-col md:flex-row justify-center font-sans gap-5">
             <div className="w-full md:w-1/2 bg-second p-8">
                 <h2 className="text-3xl text-blue-700 text-center capitalize font-bold">
                     Create an Account
                 </h2>
-                <form onSubmit={onSubmit} className="flex flex-col gap-y-5 pt-5">
-                    <div className="flex flex-1">
-                        <label className="text-gray-700 px-3 text-sm font-bold flex-1">
+                <form onSubmit={onSubmit} className="flex flex-col gap-5 pt-5">
+                    <div className="flex flex-1 max-lg:flex-col gap-y-3">
+                        <label className="text-gray-700 px-3 text-sm font-bold flex-1 leading-7">
                             First Name
                             <input
                                 type="text"
@@ -57,7 +68,7 @@ export default function Register() {
                                 </span>
                             )}
                         </label>
-                        <label className="text-gray-700 px-3 text-sm font-bold flex-1">
+                        <label className="text-gray-700 px-3 text-sm font-bold flex-1 leading-7">
                             Last Name
                             <input
                                 type="text"
@@ -78,7 +89,7 @@ export default function Register() {
                         </label>
                     </div>
 
-                    <label className="'text-gray-700 px-3 text-sm font-bold flex-1">
+                    <label className="'text-gray-700 px-3 text-sm font-bold flex-1 leading-7">
                         Email
                         <input
                             type="email"
@@ -96,7 +107,7 @@ export default function Register() {
                             </span>
                         )}
                     </label>
-                    <label className="'text-gray-700 px-3 text-sm font-bold flex-1">
+                    <label className="'text-gray-700 px-3 text-sm font-bold flex-1 leading-7">
                         Password
                         <input
                             type="password"
@@ -116,7 +127,7 @@ export default function Register() {
                             </span>
                         )}
                     </label>
-                    <label className="blo'text-gray-700 px-3 text-sm font-bold flex-1ck">
+                    <label className="blo'text-gray-700 px-3 text-sm font-bold flex-1 leading-7">
                         Confirm Password
                         <input
                             type="password"
@@ -148,15 +159,15 @@ export default function Register() {
                     >
                         Create Account
                     </button>
-
+                    {/* <Link to="" className="btn bg-green-700 hover:bg-green-600 border-none font-bold text-xl text-white   " > I Have Account</Link> */}
                     <div className="d-flex items-center text-center">
                         <span
                             className="w-full relative inline-block px-10 font-bold 
-                            text-sm text-white tracking-wide after:content-[''] 
+                            text-sm text-blue-700 tracking-wide after:content-[''] 
                             after:flex after:relative  after:-mt-2.5 after:w-2/5 after:h-0.5
-                        after:bg-white after:left-0 before:content-[''] 
+                        after:bg-[#013B94] after:left-0 before:content-[''] 
                         before:flex before:relative before:top-[13px] before:w-2/5 
-                        before:h-0.5 before:bg-white before:mt-2.5 before:left-[60%]"
+                        before:h-0.5 before:bg-[#013B94] before:mt-2.5 before:left-[60%]"
                         >
                             or
                         </span>
@@ -172,7 +183,7 @@ export default function Register() {
                             />{" "}
                             <span className="w-5/6">Sign up with Google</span>
                         </button>
-                        <button className="flex justify-around items-center text-center 
+                        <button className=" flex justify-around items-center text-center 
                         w-full my-0 mx-auto py-2 px-2 font-medium shadow-lg rounded 
                         bg-white hover:bg-four">
                             <img

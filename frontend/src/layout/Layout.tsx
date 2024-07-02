@@ -6,14 +6,15 @@ interface Props {
 
 export default function Layout({ children }: Props) {
     return (
-        <body className='flex flex-col min-h-screen'>
+        <div className='flex flex-col '>
             <Header />
-            <main className=' bg-[#013B94]'>
-                <section className="min-h-screen bg-white w-full mx-auto p-6 mt-9">
-                    {children}
+            <main>
+                {children}
+                <section className=" bg-white w-full min-h-[800px] mx-auto p-6 mt-9">
+
                 </section>
             </main>
             <Footer />
-        </body>
+        </div>
     )
 }
