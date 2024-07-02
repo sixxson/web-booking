@@ -1,4 +1,8 @@
 {
+  "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "strict": true
+  },
   "files": [],
   "references": [
     {
@@ -6,6 +10,11 @@
     },
     {
       "path": "./tsconfig.node.json"
+    },
+    {
+      "paths": {
+        "@/*": ["./src/*"]
+      }
     }
   ]
 }
