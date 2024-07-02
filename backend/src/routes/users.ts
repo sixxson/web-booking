@@ -1,12 +1,25 @@
 import express, { Request, Response } from 'express';
-import User from '../models/user';
+import User from '../models/User';
 import jwt from 'jsonwebtoken';
+import { check, validationResult } from 'express-validator';
 
 const router = express.Router();
 
 // POST /api/users/register
 
-router.post("/register", async (req: Request, res: Response) => {
+router.post("/register", [
+    check("firstName", "First name is required").isString(),
+    check("lastName", "Last name is required").isString(),
+    check("email", "Email is required").isEmail(),
+    check("password", "Password is required").isLength({ min: 6 }),
+
+], async (req: Request, res: Response) => {
+
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ message: errors.array() });
+    }
+
     try {
         let user = await User.findOne({
             email: req.body.email,
@@ -16,6 +29,7 @@ router.post("/register", async (req: Request, res: Response) => {
         }
         user = new User(req.body);
         await user.save();
+
         const token = jwt.sign({ userId: user.id },
             process.env.JWT_SECRET_KEY as string, {
             expiresIn: "1d"
