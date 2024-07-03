@@ -14,6 +14,7 @@ import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
 import { cn } from "../lib/utils";
 import { useAppContext } from "../contexts/AppContext";
+import SignOutButton from "./SignOutButton";
 
 
 const products = [
@@ -159,7 +160,7 @@ function Header() {
 
 
 
-                <div className="hidden lg:flex lg:flex-1 lg:justify-end ">
+                <div className="hidden lg:flex lg:flex-1 lg:justify-end items-center ">
                     <Link to="/" className="text-base font-bold leading-6 text-white p-4 btn-ghost  rounded-md">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="white" className=" w-5 font-bold " viewBox="0 0 24 24">
                             <path d="M9.75 9a2.25 2.25 0 1 1 3 2.122 2.25 2.25 0 0 0-1.5 2.122v1.006a.75.75 0 0 0 1.5 0v-1.006c0-.318.2-.602.5-.708A3.75
@@ -170,31 +171,28 @@ function Header() {
                             0 12s5.373 12 12 12 12-5.373 12-12"></path>
                         </svg>
                     </Link>
-                    <Link to="/" className="leading-6 text-white p-4 text-base font-bold btn-ghost 
+                    <Link to="/" className=" text-white p-4 text-base font-bold btn-ghost 
                     rounded-md">
                         List your property
                     </Link>
                     {isLoggedIn ?
                         (<>
-                            <Link to="/my-booking" className="text-sm font-semibold leading-6 
-                            text-white p-4">
+                            <Link to="/my-booking" className="btn text-sm font-bold bg-white mx-2 border-none  hover:text-white hover:bg-blue-600
+                            text-blue-600 ">
                                 My Booking
                             </Link>
-                            <Link to="/my-hotels" className="text-sm font-semibold leading-6 
-                            text-white p-4">
+                            <Link to="/my-hotels" className="text-sm font-bold btn bg-white mx-2 border-none  hover:text-white hover:bg-blue-600
+                            text-blue-600 ">
                                 My Hotels
                             </Link>
-                            <Link to="/logout" className="text-sm font-semibold leading-6 
-                            text-white p-4">
-                                Log out
-                            </Link>
+                            <SignOutButton />
                         </>) :
                         (<>
                             <Link to="/Register" className="text-sm font-semibold leading-6 
                             text-white p-4">
                                 Sign Up
                             </Link>
-                            <Link to="/Login" className="text-sm font-semibold leading-6 
+                            <Link to="/sign-in" className="text-sm font-semibold leading-6 
                             text-white p-4">
                                 Log in <span aria-hidden="true">&rarr;</span>
                             </Link>
