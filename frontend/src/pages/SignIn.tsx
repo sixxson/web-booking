@@ -83,7 +83,7 @@ export default function SignIn() {
                     </label>
                     <a href="#" className="text-[#4A55A2] underline capitalize hover:text-[#7895CB]">forgot your password?</a>
                     <span className="text-[#4A55A2]  capitalize ">not registered ?
-                        <Link className="hover:text-[#7895CB] underline" to="/Register">  Create an account in here </Link>
+                        <Link className="ml-1 hover:text-[#7895CB] underline" to="/Register">  Create an account in here </Link>
                     </span>
 
                     <button
@@ -103,7 +103,7 @@ export default function SignIn() {
                         <button className="flex justify-around items-center text-center w-full my-0 mx-auto py-2 px-2 font-medium shadow-lg rounded 
                     bg-[#4A55A2] text-white hover:bg-[#7895CB]">
                             <img src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png"
-                                className="relative w-10 h-10 ml-0 mr-2 bg-white rounded" alt="google logo" />
+                                className="relative w-10 h-10 ml-0 mr-2  rounded" alt="google logo" />
                             <span className="w-5/6">
                                 Login  with Google
                             </span>

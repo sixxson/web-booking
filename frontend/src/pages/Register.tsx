@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { useMutation, useQueryClient } from "react-query";
 import * as apiClient from "../api-client";
 import { useAppContext } from "../contexts/AppContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export type RegisterFormData = {
     firstName: string;
@@ -154,6 +154,12 @@ export default function Register() {
                             </span>
                         )}
                     </label>
+                    <span className="text-[#4A55A2]  capitalize ">
+                        Already registered?
+                        <Link to="/signin" className="ml-1 hover:text-[#7895CB] underline">
+                            Sign in here
+                        </Link>
+                    </span>
 
                     <button
                         type="submit"
@@ -177,7 +183,7 @@ export default function Register() {
                     <div className="flex flex-col gap-y-2">
                         <button className="flex justify-around items-center text-center 
                         w-full my-0 mx-auto py-2 px-2 font-medium shadow-lg rounded 
-                        bg-white hover:bg-four ">
+                        bg-white hover:bg-[#7895CB] ">
                             <img
                                 src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png"
                                 className="relative w-10 h-10 ml-0 mr-2"
@@ -187,7 +193,7 @@ export default function Register() {
                         </button>
                         <button className=" flex justify-around items-center text-center 
                         w-full my-0 mx-auto py-2 px-2 font-medium shadow-lg rounded 
-                        bg-white hover:bg-four">
+                        bg-white hover:bg-[#7895CB]">
                             <img
                                 src="https://cdn-icons-png.flaticon.com/512/5968/5968764.png"
                                 className="relative w-10 h-10 ml-0 mr-2"

@@ -32,7 +32,7 @@ function App() {
             <Register />
           </Layout>
         } />
-        <Route path='/sign-in' element={
+        <Route path='/signin' element={
           <Layout>
             <SignIn />
           </Layout>

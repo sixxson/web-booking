@@ -192,7 +192,7 @@ function Header() {
                             text-white p-4">
                                 Sign Up
                             </Link>
-                            <Link to="/sign-in" className="text-sm font-semibold leading-6 
+                            <Link to="/SignIn" className="text-sm font-semibold leading-6 
                             text-white p-4">
                                 Log in <span aria-hidden="true">&rarr;</span>
                             </Link>
@@ -392,14 +392,28 @@ function Header() {
                                 </a>
                             </div>
 
-                            <div className="py-6">
-                                <Link
-                                    to="/Register"
-                                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold 
-                                    leading-7 text-white hover:bg-blue-800"
-                                >
-                                    Log In
-                                </Link>
+                            <div className="flex flex-col py-6 justify-end">
+                                {isLoggedIn ?
+                                    (<>
+                                        <Link to="/my-booking" className="text-sm font-semibold leading-6 text-white p-2 my-2  hover:bg-blue-800 rounded-md">
+                                            My Booking
+                                        </Link>
+                                        <Link to="/my-hotels" className="text-sm font-semibold leading-6 text-white p-2 my-2  hover:bg-blue-800 rounded-md">
+                                            My Hotels
+                                        </Link>
+                                        <SignOutButton />
+                                    </>) :
+                                    (<>
+                                        <Link to="/Register" className="text-sm font-semibold leading-6 
+                            text-white px-2 py-4 hover:bg-blue-800 rounded-md">
+                                            Sign Up
+                                        </Link>
+                                        <Link to="/SignIn" className="text-sm font-semibold leading-6 
+                            text-white px-2 py-4 hover:bg-blue-800 rounded-md">
+                                            Log in <span aria-hidden="true">&rarr;</span>
+                                        </Link>
+                                    </>)
+                                }
                             </div>
                         </div>
                     </div>

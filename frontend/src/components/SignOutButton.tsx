@@ -22,8 +22,7 @@ export default function SignOutButton() {
     return (
         <button
             onClick={handleClick}
-            className='btn text-blue-600 border-none mx-2
-            font-bold bg-white hover:bg-gray-100'>
+            className='text-sm text-left font-semibold text-red-600  p-4 rounded-md bg-white hover:text-white hover:bg-red-700'>
             Sign Out
         </button>
     )
