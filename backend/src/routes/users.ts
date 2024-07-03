@@ -30,7 +30,8 @@ router.post("/register", [
         user = new User(req.body);
         await user.save();
 
-        const token = jwt.sign({ userId: user.id },
+        const token = jwt.sign(
+            { userId: user.id },
             process.env.JWT_SECRET_KEY as string, {
             expiresIn: "1d"
         });
