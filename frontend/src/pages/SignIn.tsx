@@ -24,7 +24,7 @@ export default function SignIn() {
     const mutation = useMutation(apiClient.signIn, {
         onSuccess: async () => {
             // 1. show the toast
-            showToast({ message: "Login successful", type: "success" });
+            showToast({ message: "Sign in Successful!", type: "success" });
             // 2. redirect the user to the home page
             await queryClient.invalidateQueries("validateToken");
             navigate("/");
@@ -82,8 +82,8 @@ export default function SignIn() {
                         )}
                     </label>
                     <a href="#" className="text-[#4A55A2] underline capitalize hover:text-[#7895CB]">forgot your password?</a>
-                    <span className="text-[#4A55A2]  capitalize ">not registered ?
-                        <Link className="ml-1 hover:text-[#7895CB] underline" to="/Register">  Create an account in here </Link>
+                    <span className="text-[#4A55A2]   ">not registered ?
+                        <Link className="ml-1 hover:text-[#7895CB] underline" to="/Register">  Create an account here </Link>
                     </span>
 
                     <button
@@ -100,22 +100,22 @@ export default function SignIn() {
                         </span>
                     </div>
                     <div className="flex flex-col gap-y-2">
-                        <button className="flex justify-around items-center text-center w-full my-0 mx-auto py-2 px-2 font-medium shadow-lg rounded 
+                        <a className="flex justify-around items-center text-center w-full my-0 mx-auto py-2 px-2 font-medium shadow-lg rounded 
                     bg-[#4A55A2] text-white hover:bg-[#7895CB]">
                             <img src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png"
                                 className="relative w-10 h-10 ml-0 mr-2  rounded" alt="google logo" />
                             <span className="w-5/6">
                                 Login  with Google
                             </span>
-                        </button>
-                        <button className="flex justify-around items-center text-center w-full my-0 mx-auto py-2 px-2 font-medium shadow-lg 
+                        </a>
+                        <a className="flex justify-around items-center text-center w-full my-0 mx-auto py-2 px-2 font-medium shadow-lg 
                     rounded bg-[#4A55A2] text-white hover:bg-[#7895CB]">
                             <img src="https://cdn-icons-png.flaticon.com/512/5968/5968764.png"
                                 className="relative w-10 h-10 ml-0 mr-2" alt="facebook logo" />
                             <span className="w-5/6">
                                 Login with Facebook
                             </span>
-                        </button>
+                        </a>
                     </div>
                 </form>
             </div>

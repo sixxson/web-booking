@@ -2,28 +2,32 @@ import { useMutation, useQueryClient } from "react-query";
 import * as apiClient from "../api-client";
 import { useAppContext } from "../contexts/AppContext";
 
-export default function SignOutButton() {
+const SignOutButton = () => {
     const queryClient = useQueryClient();
     const { showToast } = useAppContext();
-    const mutation = useMutation(apiClient.sigOut, {
+
+    const mutation = useMutation(apiClient.signOut, {
         onSuccess: async () => {
             await queryClient.invalidateQueries("validateToken");
-            showToast({ message: "Signed out", type: "success" })
+            showToast({ message: "Signed Out!", type: "success" });
         },
         onError: (error: Error) => {
-            showToast({ message: error.message, type: "error" })
-        }
+            showToast({ message: error.message, type: "error" });
+        },
     });
 
     const handleClick = () => {
         mutation.mutate();
-    }
+    };
 
     return (
         <button
             onClick={handleClick}
-            className='text-sm text-left font-semibold text-red-600  p-4 rounded-md bg-white hover:text-white hover:bg-red-700'>
+            className="text-blue-600 btn px-3 font-bold bg-white hover:bg-gray-100 "
+        >
             Sign Out
         </button>
-    )
-}
+    );
+};
+
+export default SignOutButton;

@@ -5,9 +5,14 @@ import mongoose from 'mongoose';
 import userRoutes from './routes/users';
 import authRoutes from './routes/auth';
 import cookieParser from 'cookie-parser';
+import exp from 'constants';
 
 mongoose
-    .connect(process.env.MONGODB_CONNECTION_STRING as string);
+    .connect(process.env.MONGODB_CONNECTION_STRING as string)
+    .then(() => {
+        console.log('Connected to MongoDB', process.env.MONGODB_CONNECTION_STRING);
+    })
+
 
 const app = express();
 app.use(cookieParser());
@@ -19,6 +24,8 @@ app.use(
         credentials: true,
     })
 );
+
+app.use(express.static('__dirname' + '../../frontend/dist'));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);

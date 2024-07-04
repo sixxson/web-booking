@@ -161,7 +161,7 @@ function Header() {
 
 
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end items-center ">
-                    <Link to="/" className="text-base font-bold leading-6 text-white p-4 btn-ghost  rounded-md">
+                    {/* <Link to="/" className="text-base font-bold leading-6 text-white p-4 btn-ghost  rounded-md">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="white" className=" w-5 font-bold " viewBox="0 0 24 24">
                             <path d="M9.75 9a2.25 2.25 0 1 1 3 2.122 2.25 2.25 0 0 0-1.5 2.122v1.006a.75.75 0 0 0 1.5 0v-1.006c0-.318.2-.602.5-.708A3.75
                             3.75 0 1 0 8.25 9a.75.75 0 1 0 1.5 0M12 16.5a1.125 1.125 0 1 0 0 2.25 1.125 
@@ -174,9 +174,9 @@ function Header() {
                     <Link to="/" className=" text-white p-4 text-base font-bold btn-ghost 
                     rounded-md">
                         List your property
-                    </Link>
+                    </Link> */}
                     {isLoggedIn ?
-                        (<>
+                        (<div>
                             <Link to="/my-booking" className="btn text-sm font-bold bg-white mx-2 border-none  hover:text-white hover:bg-blue-600
                             text-blue-600 ">
                                 My Booking
@@ -186,7 +186,7 @@ function Header() {
                                 My Hotels
                             </Link>
                             <SignOutButton />
-                        </>) :
+                        </div>) :
                         (<>
                             <Link to="/Register" className="text-sm font-semibold leading-6 
                             text-white p-4">
@@ -194,7 +194,8 @@ function Header() {
                             </Link>
                             <Link to="/SignIn" className="text-sm font-semibold leading-6 
                             text-white p-4">
-                                Log in <span aria-hidden="true">&rarr;</span>
+                                Sign In
+                                {/* <span aria-hidden="true">&rarr;</span> */}
                             </Link>
                         </>)
                     }
@@ -410,7 +411,8 @@ function Header() {
                                         </Link>
                                         <Link to="/SignIn" className="text-sm font-semibold leading-6 
                             text-white px-2 py-4 hover:bg-blue-800 rounded-md">
-                                            Log in <span aria-hidden="true">&rarr;</span>
+                                            Sign In
+                                            {/* <span aria-hidden="true">&rarr;</span> */}
                                         </Link>
                                     </>)
                                 }

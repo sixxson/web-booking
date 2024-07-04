@@ -26,7 +26,7 @@ export default function Register() {
     const mutation = useMutation(apiClient.register, {
         onSuccess: async () => {
             showToast({
-                message: "User registered successfully",
+                message: "Registration Success!",
                 type: "success",
             });
             await queryClient.invalidateQueries("validateToken");
@@ -181,7 +181,7 @@ export default function Register() {
                         </span>
                     </div>
                     <div className="flex flex-col gap-y-2">
-                        <button className="flex justify-around items-center text-center 
+                        <a className="flex justify-around items-center text-center 
                         w-full my-0 mx-auto py-2 px-2 font-medium shadow-lg rounded 
                         bg-white hover:bg-[#7895CB] ">
                             <img
@@ -190,8 +190,8 @@ export default function Register() {
                                 alt="google logo"
                             />{" "}
                             <span className="w-5/6">Sign up with Google</span>
-                        </button>
-                        <button className=" flex justify-around items-center text-center 
+                        </a>
+                        <a className=" flex justify-around items-center text-center 
                         w-full my-0 mx-auto py-2 px-2 font-medium shadow-lg rounded 
                         bg-white hover:bg-[#7895CB]">
                             <img
@@ -200,7 +200,7 @@ export default function Register() {
                                 alt="facebook logo"
                             />{" "}
                             <span className="w-5/6">Sign up with Facebook</span>
-                        </button>
+                        </a>
                     </div>
                 </form>
             </div>
