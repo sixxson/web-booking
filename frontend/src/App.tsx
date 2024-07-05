@@ -1,8 +1,9 @@
 import { Route, Routes, Navigate, BrowserRouter as Router } from 'react-router-dom'
 import './App.css'
 import Layout from './layout/Layout'
-import Register from './components/Register'
+import Register from './pages/Register'
 import Hero from './components/Hero'
+import SignIn from './pages/SignIn'
 
 function App() {
   return (
@@ -29,6 +30,11 @@ function App() {
         <Route path='/register' element={
           <Layout>
             <Register />
+          </Layout>
+        } />
+        <Route path='/signin' element={
+          <Layout>
+            <SignIn />
           </Layout>
         } />
         <Route path="*" element={<Navigate to="/" />}
