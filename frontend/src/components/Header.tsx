@@ -188,12 +188,12 @@ function Header() {
                             <SignOutButton />
                         </div>) :
                         (<>
-                            <Link to="/Register" className="text-sm font-semibold leading-6 
-                            text-white p-4">
+                            <Link to="/Register" className="text-sm font-semibold leading-6 hover:bg-blue-800 rounded-md btn btn-ghost
+                            text-white ">
                                 Sign Up
                             </Link>
-                            <Link to="/SignIn" className="text-sm font-semibold leading-6 
-                            text-white p-4">
+                            <Link to="/SignIn" className="text-sm font-semibold leading-6 hover:bg-blue-800 rounded-md btn btn-ghost
+                            text-white ">
                                 Sign In
                                 {/* <span aria-hidden="true">&rarr;</span> */}
                             </Link>
